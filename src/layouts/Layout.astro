@@ -1,4 +1,7 @@
 ---
+// Supports weights 100-900
+import '@fontsource-variable/jost';
+
 interface Props {
 	title: string;
 }
@@ -7,7 +10,7 @@ const { title } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="sp">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="description" content="Astro description" />
@@ -22,30 +25,57 @@ const { title } = Astro.props;
 </html>
 <style is:global>
 	:root {
-		--accent: 136, 58, 234;
-		--accent-light: 224, 204, 250;
-		--accent-dark: 49, 10, 101;
+		--background-color: #222;
+		--text-color-light: rgb(225, 245, 255);
+		--text-color-dark: rgb(35, 36, 36);
+		--accent: rgb(203, 206, 247);
+		--accent-light: rgb(159, 191, 226);
+		--accent-dark: rgb(49, 10, 255);
 		--accent-gradient: linear-gradient(
 			45deg,
-			rgb(var(--accent)),
-			rgb(var(--accent-light)) 30%,
+			var(--accent) 10%,
+			var(--accent-light) 30%,
 			white 60%
 		);
 	}
+
+	*,
+	*::after,
+	*::before {
+		box-sizing: border-box;
+		padding: 0;
+		margin: 0;
+	}
+
 	html {
-		font-family: system-ui, sans-serif;
-		background: #13151a;
+		font-family: 'Jost Variable', sans-serif, system-ui;
+		background: #d8deec;
 		background-size: 224px;
+		color: var(--text-color-dark);
 	}
-	code {
-		font-family:
-			Menlo,
-			Monaco,
-			Lucida Console,
-			Liberation Mono,
-			DejaVu Sans Mono,
-			Bitstream Vera Sans Mono,
-			Courier New,
-			monospace;
+
+	p {
+		text-wrap: pretty;
 	}
+
+	h1, h2, h3 {
+		text-wrap: balance;
+	}
+
+	.button {
+		text-decoration: none;
+		height: fit-content;
+		padding: 10px 45px;
+		margin: 15px;
+		background: linear-gradient(to right, rgb(37, 96, 139), rgb(92, 71, 97));
+		color: var(--text-color-light);
+		border-radius: 3px;
+		transition: 0.4s scale ease;
+		font-weight: bolder;
+	}
+
+	.button:hover {
+		scale: 1.2;
+	}
+
 </style>

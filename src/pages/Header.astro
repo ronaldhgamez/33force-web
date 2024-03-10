@@ -1,0 +1,92 @@
+---
+import HamburgerMenu from "../components/HamburgerMenu.astro";
+---
+
+<header id="33force-header" class="header-box fixed-header">
+    <div class="navbar-container container">
+        <section class="logo">
+            <img src="favicon.svg" alt="33Force Logo" width="50px" height="50px" />
+        </section>
+        
+        <HamburgerMenu />
+    </div>
+</header>
+
+<script>
+    const header = document.getElementById("33force-header")!;
+        window.addEventListener("scroll", () => {
+              if (
+                  document.body.scrollTop > 20 ||
+                  document.documentElement.scrollTop > 20
+              ) {
+                  header.classList.add("blur-header");
+              } else {
+                  header.classList.remove("blur-header");
+              }
+        });
+</script>
+
+<style>
+  .container {
+    max-width: 1330px;
+    width: 100%;
+    margin: auto;
+  }
+
+  .header-box {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        z-index: 1;
+        padding: 0 3%;
+    }
+
+    .blur-header {
+        backdrop-filter: blur(8px);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        transition: backdrop-filter 0.5s ease-in-out;
+    }
+
+    .fixed-header {
+        position: fixed;
+        top: 0;
+        left: 0;
+    }
+  /* ............/navbar/............ *
+
+/* desktop mode............/// */
+
+
+  .navbar-container {
+    display: flex;
+    justify-content: space-between;
+    height: 64px;
+    align-items: center;
+  }
+
+  .logo {
+    order: 2;
+    filter: drop-shadow(0 8px 0px rgba(255, 255, 255, 0.3));
+  }
+
+  /* ......../ media query /.......... */
+
+  @media (max-width: 768px) {
+    .navbar {
+      opacity: 0.95;
+    }
+
+    .navbar-container {
+      display: block;
+      position: relative;
+      height: 64px;
+    }
+
+    .logo {
+      position: absolute;
+      top: 0px;
+      left: 15px;
+    }
+    
+  }
+</style>

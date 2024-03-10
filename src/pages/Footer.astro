@@ -1,0 +1,188 @@
+---
+import SocialLink from '../components/SocialLink.astro'
+import ContactInfo from '../components/ContactInfo.astro'
+---
+
+<div class="footer-container">
+    <section class="information">
+        <h2>33FORCE | Contact Us</h2>
+        <div class="address-container">
+            <div class="contact-info">
+                <h2>Contact Us</h2>
+                <ContactInfo
+                    title="servicio@33force.com"
+                    src="mail.svg"
+                    alt="33 Force Mail Link"
+                    width="25" height="25"
+                    href='mailto:servicio@33force.com'
+                />
+                <ContactInfo 
+                    title="+506 8718 3606"
+                    src="phone.svg"
+                    alt="33Force phone number" 
+                    width="25" height="25"
+                    href='tel:+50687183606'
+                />
+                <ContactInfo 
+                    title="Click to start a WhatsApp conversation" src="whatsapp.svg" 
+                    alt="33Force Whatsapp Link"
+                    width="25" height="25"
+                    href='https://api.whatsapp.com/send/?phone=50687183606&text&app_absent=0'
+                />
+            </div>
+
+            <div class="contact-info">
+                <h2>Address</h2>
+                
+                <ContactInfo
+                    title="Los Angeles de la Fortuna, Alajuela, Costa Rica"
+                    src="location.svg"
+                    alt="33Force address Link" 
+                    width="25" height="25"
+                    href='https://maps.app.goo.gl/gaMYHtCKCGmjLffaA'
+                />
+                <ContactInfo 
+                    title="Start Waze Trip"
+                    src="waze.svg"
+                    alt="33Force waze lcoation" 
+                    width="25" height="25"
+                    href='https://ul.waze.com/ul?preview_venue_id=180486249.1805124630.13018214&navigate=yes'
+                />
+            </div>
+        </div>
+
+        <div class="social-media">
+            <SocialLink 
+                title="Instagram"
+                src="instagram.svg" 
+                alt="33Force Instagram Link" 
+                width="47" height="47"
+                href='https://www.instagram.com/'
+            />
+            <SocialLink 
+                title="Facebook"
+                src="facebook.svg" 
+                alt="33Force Facebook Link" 
+                width="50" height="50" 
+                href='https://www.facebook.com/' 
+            />
+        </div>
+        <p class="copyright">&copy; 2024 33Force.</p> 
+    </section>
+
+    <div class="logo">
+        <!-- <CultourLogo width="100%" /> -->
+    </div>
+</div>
+
+<style>
+
+    .footer-container {
+        position: relative;
+        width: 100%;
+        height: 60dvh;
+        background-color: var(--background-color);
+    }
+
+    .logo {
+        position: absolute;
+        width: 16%;
+        bottom: 25px;
+        right: 35px;
+        z-index: 1;
+    }
+
+    .address-container {
+        display: flex;
+        gap: 15px;
+        flex-wrap: wrap; 
+        justify-content: center;
+    }
+    
+    .information {
+        position: absolute;
+        z-index: 1;
+
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        width: 100%;
+        height: 95%;
+        
+        color: var(--text-color-light);
+        justify-content: flex-end;
+        align-items: center;
+
+        & .copyright {
+            text-align: center;
+            width: 50%;
+        }
+    }
+
+    .social-media {
+        display: flex;
+        justify-content: space-between;
+        gap: 20px;
+    }
+
+    .contact-info {
+        display: flex;
+        gap: 10px;
+        flex-direction: column;
+        padding: 20px 120px 20px 30px;
+        width: 49%;
+        min-width: 330px;
+        border-radius: 4px;
+        background-color: rgba(0, 0, 0, 0.6);
+        background: linear-gradient(to left,  rgb(37, 96, 139, 0.5),rgb(92, 71, 97, 0.5));
+        z-index: -1;
+    }
+
+    @media screen and (max-width: 840px) {
+    
+        .title {
+            font-size: 2em;
+        }
+
+        .footer-container {
+            height: 450px;
+            background-position: 35% 50%;
+        }
+        
+        .logo {
+            position: absolute;
+            width: 20%;
+            bottom: 10px;
+            right: 5px;
+        }
+
+        .information { 
+            height: 99%;
+            gap: 10px;
+
+            & .copyright {
+                font-size: 1.0em;
+            }
+        }
+
+        .social-media {
+            gap: 10px;
+        }
+
+        .address-container {
+            gap: 0px;
+        }
+
+        .contact-info {
+            width: 95%;
+            padding: 9px 20px;
+            gap: 10px;
+            border-radius: 0;
+        }
+
+        .contact-info h2 {
+            font-size: 1.0em;
+        }
+
+    }
+</style>

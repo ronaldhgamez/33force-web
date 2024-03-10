@@ -1,0 +1,118 @@
+---
+//import Header2 from '../pages/Header.astro'
+---
+
+<header id="33force-header" class="header-box fixed-header">
+    <section class="logo">
+        <img src="favicon.svg" alt="33Force Logo" width="50px" height="50px">
+    </section>
+
+    <div id="nav-container">
+        <nav class="center nav-container" >
+            <a class="nav-box center" href="">Inicio</a>
+            <a class="nav-box center" href="">Servicios</a>
+            <a class="nav-box center" href="">Insdustrial</a>
+            <a class="nav-box center" href="">Residencial</a>
+            <a class="nav-box center" href="">Comercial</a>
+            <a class="nav-box center" href="">Contacto</a>
+        </nav>
+    </div>
+</header>
+
+<script>
+    const header = document.getElementById("33force-header")!;
+    window.addEventListener("scroll", () => {
+        if (
+            document.body.scrollTop > 20 ||
+            document.documentElement.scrollTop > 20
+        ) {
+            header.classList.add("blur-header");
+        } else {
+            header.classList.remove("blur-header");
+        }
+    });
+</script>
+
+<style>
+    .header-box {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        
+        z-index: 1;
+        padding: 0 3%;
+    }
+
+    .blur-header {
+        backdrop-filter: blur(8px);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        transition: backdrop-filter 0.5s ease-in-out;
+    }
+
+    .fixed-header {
+        position: fixed;
+        top: 0;
+        left: 0;
+    }
+
+    .logo {
+        filter: drop-shadow(0 8px 0px rgba(255, 255, 255, 0.3));
+    }
+
+    .center {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .nav-container {
+        gap: 5px;
+        height: 60px;
+
+        & a {
+            text-decoration: none;
+            color: var(--text-color-light);
+            font-size: 19px;
+            font-weight: 500;
+        }
+
+        & .nav-box {
+            align-self: center;
+            height: 45px;
+            padding: 0 30px;
+        }
+    }
+
+    .nav-box:hover {
+        outline: 2px solid #09f;
+    }
+
+    @media screen and (max-width: 768px) {
+
+        .nav-container {
+            display: none;
+            position: absolute;
+            flex-direction: column;
+            width: 320px;
+            height: 400px;
+            top: 75px;
+            right: 20px;
+            backdrop-filter: blur(50px);
+            gap: 0;
+
+            & a {
+                font-size: 22px;
+            }
+
+            & .nav-box {
+                justify-content: left;
+                border: solid 1px rgba(255, 255, 255, 0.298);
+                width: 100%;
+                height: 100%;
+            }
+        }
+        
+    }
+
+ logo
+</style>

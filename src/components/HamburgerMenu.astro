@@ -1,0 +1,148 @@
+<input type="checkbox" name="" id="" />
+<div class="hamburger-lines">
+    <span class="line line1"></span>
+    <span class="line line2"></span>
+    <span class="line line3"></span>
+</div>
+
+<nav class="nav-container">
+    <a class="nav-box center" href="">Inicio</a>
+    <a class="nav-box center" href="">Servicios</a>
+    <a class="nav-box center" href="">Insdustrial</a>
+    <a class="nav-box center" href="">Residencial</a>
+    <a class="nav-box center" href="">Comercial</a>
+    <a class="nav-box center" href="">Contacto</a>
+</nav>
+
+<style>
+    input[type="checkbox"],
+    .hamburger-lines {
+        display: none;
+    }
+
+    .nav-container {
+        order: 2;
+        display: flex;
+        gap: 5px;
+        height: 60px;
+
+        & a {
+            text-decoration: none;
+            color: var(--text-color-light);
+            font-size: 19px;
+            font-weight: 500;
+            transition: color 0.3s ease-in-out;
+        }
+
+        & .nav-box {
+            align-self: center;
+            height: 45px;
+            padding: 0 30px;
+        }
+    }
+
+    .nav-container a:hover {
+        color: #09f;
+    }
+
+    .center {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    @media (max-width: 768px) {
+
+        .nav-container {
+            padding-top: 100px;
+            background: #fff;
+            backdrop-filter: blur(50px);
+            height: 100vh;
+            max-width: 300px;
+            transform: translate(-150%);
+            display: flex;
+            flex-direction: column;
+            margin-left: -40px;
+            padding-left: 50px;
+            transition: transform 0.5s ease-in-out;
+            box-shadow: 2px 0px 10px 0px #aaa;
+
+            & a {
+                color: var(--text-color-dark);
+            }
+        }
+
+        .nav-container a {
+            margin-bottom: 1.5rem;
+            font-size: 1.3rem;
+            font-weight: 500;
+        }
+
+        input[type="checkbox"],
+        .hamburger-lines {
+            display: block;
+        }
+
+        input[type="checkbox"] {
+            position: absolute;
+            display: block;
+            height: 50px;
+            width: 50px;
+            top: 0px;
+            right: 10px;
+            z-index: 5;
+            opacity: 0;
+        }
+
+        .hamburger-lines {
+            display: block;
+            height: 23px;
+            width: 35px;
+            position: absolute;
+            top: 17px;
+            right: 20px;
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .hamburger-lines .line {
+            display: block;
+            height: 4px;
+            width: 100%;
+            border-radius: 10px;
+            background: var(--text-color-light);
+        }
+
+        .hamburger-lines .line1 {
+            transform-origin: 0% 0%;
+            transition: transform 0.4s ease-in-out;
+        }
+
+        .hamburger-lines .line2 {
+            transition: transform 0.2s ease-in-out;
+        }
+
+        .hamburger-lines .line3 {
+            transform-origin: 0% 100%;
+            transition: transform 0.4s ease-in-out;
+        }
+
+        input[type="checkbox"]:checked ~ .nav-container {
+            transform: translateX(0);
+        }
+
+        input[type="checkbox"]:checked ~ .hamburger-lines .line1 {
+            transform: rotate(35deg);
+        }
+
+        input[type="checkbox"]:checked ~ .hamburger-lines .line2 {
+            transform: scaleY(0);
+        }
+
+        input[type="checkbox"]:checked ~ .hamburger-lines .line3 {
+            transform: rotate(-35deg);
+        }
+    }
+</style>
